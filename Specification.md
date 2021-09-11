@@ -6,10 +6,9 @@ Date: 9/10/21
 
 Product Name: StudentSupport.org (Work In Progress)
 
-Problem Statement: Our group must build an app to help students study prioritizing in memorization, note-taking, and time management. Students must be able to log on/off, delete
-account. Input/Output flash cards, and share to their account.
+Problem Statement: Group must create an app to help students study using Linux, Python, and Github.
 
-Non-functional Requirements: Use python for coding of project. 
+Non-functional Requirements: Use python for coding of project. Github for loading files onto public pages, and Linux for the command line process. 
 
  
 
@@ -17,8 +16,8 @@ Use Case Name:
 
 ## Summary
 
-write summary here
-
+Our group must build an app to help students study prioritizing in memorization, note-taking, and time management. Students must be able to log on/off, delete
+account. Input/Output flash cards, and share to their account.
  
 
 ## Actors
