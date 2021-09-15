@@ -23,9 +23,9 @@ account. Input/Output flash cards, and share to their account.
 
 ## Actors
 
-actor 1
+actor 1: StudentX
 
-actor 2
+actor 2: StudentY
 
 ….
 
