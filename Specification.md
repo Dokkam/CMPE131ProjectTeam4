@@ -169,171 +169,197 @@ User clicks on the "sign out" button at the top left of the page
 
 ## **Use Case #3 Description**
 
-**Date:** 
+**Date:** 9/14/2021
 
 **Product Name:** Studious
 
-**Problem Statement:** 
+**Problem Statement:** Studious currently does not have a way to import markdown files and create flash cards out of them
 
 **Non-functional Requirements:**
 
+File Type is .md
 
+###### Notifications:
 
-**Use Case Name:** 
+Wrong File Type
+
+File Cannot Be Converted
+
+**Use Case Name:** Convert Markdown Files to Flash Cards
 
 
 
 ##### Actors
 
-1. 
+1. User
+2. Software
 
 
 
 ##### Preconditions
 
-* 
+* User has a markdown file ready to input
 
  
 
 ##### Triggers
 
-
+User clicks a "Upload" button
 
  
 
 ##### Primary Sequence
 
-1. 
+1. System asks if their file is for flash cards or notes
+2. System asks for file to upload
+3. User clicks on file they want to upload
+4. User clicks Import
 
  
 
 ##### Primary Postconditions
 
-* 
+* Message appears indicating whether the upload was successful or not
 
 
 
 ##### Alternate Trigger
 
-
+A file has been successfully uploaded
 
 ##### Alternative Sequences
 
-1. 
+1. File is read
 
+2. System sorts out the file
 
+3. System creates flash cards according to the file
+
+   
 
 ##### Alternate Postconditions
 
-* 
+* Message appears telling the user that flash cards have been successfully created
+* User can now access their flashcards
 
 
 
 ## **Use Case #4 Description**
 
-**Date:** 
+**Date:** 9/14/2021
 
 **Product Name:** Studious
 
-**Problem Statement:** 
+**Problem Statement:** User's cannot share flashcards or add other user flashcards to their own library/profile
 
 **Non-functional Requirements:**
 
+Able to private their flash cards or notes
 
-
-**Use Case Name:** 
+**Use Case Name:** Sharing Flash Cards
 
 
 
 ##### Actors
 
-1. 
+1. User
 
 
 
 ##### Preconditions
 
-* 
+* User has a set of flash cards 
+* Flash cards are not private
 
  
 
 ##### Triggers
 
-
+User clicks the "share button"
 
  
 
 ##### Primary Sequence
 
-1. 
+1. Message pops up asking if they want to share permissions 
+2. Message pops up giving the user a url to their flash cards
 
  
 
 ##### Primary Postconditions
 
-* 
+* User now has a sharable link to their flash cards
 
-
+  
 
 ##### Alternate Trigger
 
-
+User clicks "Add to my library"
 
 ##### Alternative Sequences
 
-1. 
+1. Confirmation message appears
+2. Message "Flash Cards Successfully Added To Library" appears on user screen
 
 
 
 ##### Alternate Postconditions
 
-* 
+* User is now able to access the added flash cards through their profile/library
 
 
 
 ## **Use Case #5 Description**
 
-**Date:** 
+**Date:** 9/14/2021
 
 **Product Name:** Studious
 
-**Problem Statement:** 
+**Problem Statement:** Studious is not able to render markdown notes
 
-**Non-functional Requirements:**
+**Non-functional Requirements:** 
 
+File Type is .md
 
+###### Notifications:
 
-**Use Case Name:** 
+Wrong File Type
+
+**Use Case Name:** Import Notes
 
 
 
 ##### Actors
 
-1. 
+1. User
 
 
 
 ##### Preconditions
 
-* 
+* User has a markdown file ready to upload
 
  
 
 ##### Triggers
 
+User Clicks "Upload" button
 
 
- 
 
 ##### Primary Sequence
 
-1. 
+1. System asks if their file is for flash cards or notes
+2. System asks for file to upload
+3. User clicks on the file they want to upload
+4. File is read and sorted
 
  
 
 ##### Primary Postconditions
 
-* 
+* Message tells user their notes have been uploaded
+* user can now access their notes on Studious
 
 
 
@@ -355,47 +381,49 @@ User clicks on the "sign out" button at the top left of the page
 
 ## **Use Case #6 Description**
 
-**Date:** 
+**Date:** 9/14/2021
 
 **Product Name:** Studious
 
-**Problem Statement:** 
+**Problem Statement:** Studious cannot convert notes to pdf
 
 **Non-functional Requirements:**
 
+File type is .md
 
-
-**Use Case Name:** 
+**Use Case Name:** Notes to PDF
 
 
 
 ##### Actors
 
-1. 
+1. User
 
 
 
 ##### Preconditions
 
-* 
+* User have already uploaded their notes onto Studious
 
  
 
 ##### Triggers
 
-
+User clicks "PDF" button
 
  
 
 ##### Primary Sequence
 
-1. 
+1. System asks user to choose which notes they want to convert into PDF
+2. User selects notes
+3. User clicks continue
 
  
 
 ##### Primary Postconditions
 
-* 
+* The user's notes are now converted into pdf
 
 
 
