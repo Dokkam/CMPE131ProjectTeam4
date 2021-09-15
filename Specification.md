@@ -47,12 +47,13 @@ Allow User to create an account in Studious
 ##### Preconditions
 
 * User requires a unique Email
+* User is on the "Sign up/Sign in" page
 
  
 
 ##### Triggers
 
-User clicks on the "Sign Up" button
+* User clicks on the "Sign Up" button
 
  
 
@@ -74,13 +75,13 @@ User clicks on the "Sign Up" button
 
 
 
+##### Alternate Trigger
+
+
+
 ##### Alternative Sequences
 
 1. 
-
-
-
-##### Alternate Trigger
 
 
 
@@ -92,63 +93,77 @@ User clicks on the "Sign Up" button
 
 ## **Use Case #2 Description**
 
-**Date:** 
+**Date:** 9/14/2021
 
 **Product Name:** Studious
 
-**Problem Statement:** 
+**Problem Statement:** Currently Studious does not have a way for the users to sign in & sign out
 
 **Non-functional Requirements:**
 
+Forgot Password?
 
+###### Notifications:
 
-**Use Case Name:** 
+Wrong username/password
+
+Caps Lock is ON
+
+Password has been changed
+
+**Use Case Name:** Sign In/Out
 
 
 
 ##### Actors
 
-1. 
+1. User
 
 
 
 ##### Preconditions
 
-* 
+* User must already have an existing account
 
- 
+* User is on the "Sign up/ Sign in" page
+
+* User is already logged in to be able to sign out
+
+  
 
 ##### Triggers
 
+User would have to click on the "sign in" button that is located on the "sign up/sign in" page
 
-
- 
 
 ##### Primary Sequence
 
-1. 
+1. User is redirected to sign in page
+2. User enters information to sign in
+3. User clicks "sign in" button
 
  
 
 ##### Primary Postconditions
 
-* 
-
-
-
-##### Alternative Sequences
-
-1. 
+* User is redirected to their profile page
 
 
 
 ##### Alternate Trigger
 
+User clicks on the "sign out" button at the top left of the page
+
+##### Alternative Sequences
+
+1. A message would appear asking the user if they wish to sign out
+2. User clicks sign out
+
 
 
 ##### Alternate Postconditions
 
-* 
+* User is redirected back to the "Sign up/Sign in" page
 
 
 
@@ -198,13 +213,13 @@ User clicks on the "Sign Up" button
 
 
 
+##### Alternate Trigger
+
+
+
 ##### Alternative Sequences
 
 1. 
-
-
-
-##### Alternate Trigger
 
 
 
@@ -260,13 +275,13 @@ User clicks on the "Sign Up" button
 
 
 
+##### Alternate Trigger
+
+
+
 ##### Alternative Sequences
 
 1. 
-
-
-
-##### Alternate Trigger
 
 
 
@@ -322,13 +337,13 @@ User clicks on the "Sign Up" button
 
 
 
+##### Alternate Trigger
+
+
+
 ##### Alternative Sequences
 
 1. 
-
-
-
-##### Alternate Trigger
 
 
 
@@ -384,13 +399,13 @@ User clicks on the "Sign Up" button
 
 
 
+##### Alternate Trigger
+
+
+
 ##### Alternative Sequences
 
 1. 
-
-
-
-##### Alternate Trigger
 
 
 
@@ -446,13 +461,13 @@ User clicks on the "Sign Up" button
 
 
 
+##### Alternate Trigger
+
+
+
 ##### Alternative Sequences
 
 1. 
-
-
-
-##### Alternate Trigger
 
 
 
@@ -508,13 +523,13 @@ User clicks on the "Sign Up" button
 
 
 
+##### Alternate Trigger
+
+
+
 ##### Alternative Sequences
 
 1. 
-
-
-
-##### Alternate Trigger
 
 
 
@@ -570,13 +585,13 @@ User clicks on the "Sign Up" button
 
 
 
+##### Alternate Trigger
+
+
+
 ##### Alternative Sequences
 
 1. 
-
-
-
-##### Alternate Trigger
 
 
 
@@ -632,13 +647,13 @@ User clicks on the "Sign Up" button
 
 
 
+##### Alternate Trigger
+
+
+
 ##### Alternative Sequences
 
 1. 
-
-
-
-##### Alternate Trigger
 
 
 
@@ -694,13 +709,13 @@ User clicks on the "Sign Up" button
 
 
 
+##### Alternate Trigger
+
+
+
 ##### Alternative Sequences
 
 1. 
-
-
-
-##### Alternate Trigger
 
 
 
@@ -756,13 +771,13 @@ User clicks on the "Sign Up" button
 
 
 
+##### Alternate Trigger
+
+
+
 ##### Alternative Sequences
 
 1. 
-
-
-
-##### Alternate Trigger
 
 
 
@@ -818,13 +833,13 @@ User clicks on the "Sign Up" button
 
 
 
+##### Alternate Trigger
+
+
+
 ##### Alternative Sequences
 
 1. 
-
-
-
-##### Alternate Trigger
 
 
 
@@ -880,13 +895,13 @@ User clicks on the "Sign Up" button
 
 
 
+##### Alternate Trigger
+
+
+
 ##### Alternative Sequences
 
 1. 
-
-
-
-##### Alternate Trigger
 
 
 
@@ -942,34 +957,16 @@ User clicks on the "Sign Up" button
 
 
 
+##### Alternate Trigger
+
+
+
 ##### Alternative Sequences
 
 1. 
 
 
 
-##### Alternate Trigger
-
-
-
 ##### Alternate Postconditions
 
 * 
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 
-
-### 
-
-### 
