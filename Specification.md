@@ -8,7 +8,7 @@ Travis Lincoln/TravLincoln (https://github.com/TravLincoln)
 Main Github repository:
 https://github.com/TravLincoln/CMPE131ProjectTeam4
 
-Use Case Description
+# Use Case Description
 
 Date: 9/10/21
 
