@@ -1,91 +1,975 @@
 # CMPE131Project
-Team 4:
+#### Team 4:
+
 Thomas Tran/Dokkam (https://github.com/Dokkam)
 An Le/meow2501 (https://github.com/meow2501)
 Khanh Chung/khch1997 (https://github.com/khch1997)
 Travis Lincoln/TravLincoln (https://github.com/TravLincoln)
 
-Main Github repository:
+#### Main Github repository:
+
 https://github.com/TravLincoln/CMPE131ProjectTeam4
 
-Use Case Description
 
-Date: 9/10/21
 
-Product Name: StudentSupport.org (Work In Progress)
+## **Use Case #1 Description**
 
-Problem Statement: Group must create an app to help students study using Linux, Python, and Github.
+**Date:** 9/14/2021
 
-Non-functional Requirements: Use python for coding of project. Github for loading files onto public pages, and Linux for the command line process. 
+**Product Name:** Studious
 
- 
+**Problem Statement:** There Is currently no way to create an account on Studious
 
-Use Case Name: 
+**Non-functional Requirements:**
 
-## Summary
+Incorrect email
 
-Our group must build an app to help students study prioritizing in memorization, note-taking, and time management. Students must be able to log on/off, delete
-account. Input/Output flash cards, and share to their account.
- 
+Email is already Used
 
-## Actors
+Password Strength
 
-actor 1
+Username is taken
 
-actor 2
 
-….
 
- 
+**Use Case Name:** Account Creation
 
-## Preconditions
+Allow User to create an account in Studious
 
-* precond 1
 
-* precond 2
 
-* ….
+##### Actors
 
- 
+1. User
 
-## Triggers
 
-Explain trigger here
+
+##### Preconditions
+
+* User requires a unique Email
 
  
 
-## Primary Sequence
+##### Triggers
 
-step 1 action
-
-step 2 action
-
-etc
+User clicks on the "Sign Up" button
 
  
 
-## Primary Postconditions
+##### Primary Sequence
 
-* postcondition
-
-* postcondition
-
-* etc
+1. User is redirected to Signup
+2. User enters information required for account set up
+3. User Clicks on "Create Account"
 
  
 
-## Alternate Sequences
+##### Primary Postconditions
 
-Only if you have alt seq
+* User is redirected to their profile page
 
-* Step 1 alt. seq.
+* Message will appear at the top "Account Created"
 
-* step 2 alt. seq.
+* Confirmation email is sent to user
 
-* etc
+
+
+##### Alternative Sequences
+
+1. 
+
+
+
+##### Alternate Trigger
+
+
+
+##### Alternate Postconditions
+
+* 
+
+
+
+## **Use Case #2 Description**
+
+**Date:** 
+
+**Product Name:** Studious
+
+**Problem Statement:** 
+
+**Non-functional Requirements:**
+
+
+
+**Use Case Name:** 
+
+
+
+##### Actors
+
+1. 
+
+
+
+##### Preconditions
+
+* 
 
  
 
-### Alternate Trigger
+##### Triggers
 
-### Alternate Postconditions
+
+
+ 
+
+##### Primary Sequence
+
+1. 
+
+ 
+
+##### Primary Postconditions
+
+* 
+
+
+
+##### Alternative Sequences
+
+1. 
+
+
+
+##### Alternate Trigger
+
+
+
+##### Alternate Postconditions
+
+* 
+
+
+
+## **Use Case #3 Description**
+
+**Date:** 
+
+**Product Name:** Studious
+
+**Problem Statement:** 
+
+**Non-functional Requirements:**
+
+
+
+**Use Case Name:** 
+
+
+
+##### Actors
+
+1. 
+
+
+
+##### Preconditions
+
+* 
+
+ 
+
+##### Triggers
+
+
+
+ 
+
+##### Primary Sequence
+
+1. 
+
+ 
+
+##### Primary Postconditions
+
+* 
+
+
+
+##### Alternative Sequences
+
+1. 
+
+
+
+##### Alternate Trigger
+
+
+
+##### Alternate Postconditions
+
+* 
+
+
+
+## **Use Case #4 Description**
+
+**Date:** 
+
+**Product Name:** Studious
+
+**Problem Statement:** 
+
+**Non-functional Requirements:**
+
+
+
+**Use Case Name:** 
+
+
+
+##### Actors
+
+1. 
+
+
+
+##### Preconditions
+
+* 
+
+ 
+
+##### Triggers
+
+
+
+ 
+
+##### Primary Sequence
+
+1. 
+
+ 
+
+##### Primary Postconditions
+
+* 
+
+
+
+##### Alternative Sequences
+
+1. 
+
+
+
+##### Alternate Trigger
+
+
+
+##### Alternate Postconditions
+
+* 
+
+
+
+## **Use Case #5 Description**
+
+**Date:** 
+
+**Product Name:** Studious
+
+**Problem Statement:** 
+
+**Non-functional Requirements:**
+
+
+
+**Use Case Name:** 
+
+
+
+##### Actors
+
+1. 
+
+
+
+##### Preconditions
+
+* 
+
+ 
+
+##### Triggers
+
+
+
+ 
+
+##### Primary Sequence
+
+1. 
+
+ 
+
+##### Primary Postconditions
+
+* 
+
+
+
+##### Alternative Sequences
+
+1. 
+
+
+
+##### Alternate Trigger
+
+
+
+##### Alternate Postconditions
+
+* 
+
+
+
+## **Use Case #6 Description**
+
+**Date:** 
+
+**Product Name:** Studious
+
+**Problem Statement:** 
+
+**Non-functional Requirements:**
+
+
+
+**Use Case Name:** 
+
+
+
+##### Actors
+
+1. 
+
+
+
+##### Preconditions
+
+* 
+
+ 
+
+##### Triggers
+
+
+
+ 
+
+##### Primary Sequence
+
+1. 
+
+ 
+
+##### Primary Postconditions
+
+* 
+
+
+
+##### Alternative Sequences
+
+1. 
+
+
+
+##### Alternate Trigger
+
+
+
+##### Alternate Postconditions
+
+* 
+
+
+
+## **Use Case #7 Description**
+
+**Date:** 
+
+**Product Name:** Studious
+
+**Problem Statement:** 
+
+**Non-functional Requirements:**
+
+
+
+**Use Case Name:** 
+
+
+
+##### Actors
+
+1. 
+
+
+
+##### Preconditions
+
+* 
+
+ 
+
+##### Triggers
+
+
+
+ 
+
+##### Primary Sequence
+
+1. 
+
+ 
+
+##### Primary Postconditions
+
+* 
+
+
+
+##### Alternative Sequences
+
+1. 
+
+
+
+##### Alternate Trigger
+
+
+
+##### Alternate Postconditions
+
+* 
+
+
+
+## **Use Case #8 Description**
+
+**Date:** 
+
+**Product Name:** Studious
+
+**Problem Statement:** 
+
+**Non-functional Requirements:**
+
+
+
+**Use Case Name:** 
+
+
+
+##### Actors
+
+1. 
+
+
+
+##### Preconditions
+
+* 
+
+ 
+
+##### Triggers
+
+
+
+ 
+
+##### Primary Sequence
+
+1. 
+
+ 
+
+##### Primary Postconditions
+
+* 
+
+
+
+##### Alternative Sequences
+
+1. 
+
+
+
+##### Alternate Trigger
+
+
+
+##### Alternate Postconditions
+
+* 
+
+
+
+## **Use Case #9 Description**
+
+**Date:** 
+
+**Product Name:** Studious
+
+**Problem Statement:** 
+
+**Non-functional Requirements:**
+
+
+
+**Use Case Name:** 
+
+
+
+##### Actors
+
+1. 
+
+
+
+##### Preconditions
+
+* 
+
+ 
+
+##### Triggers
+
+
+
+ 
+
+##### Primary Sequence
+
+1. 
+
+ 
+
+##### Primary Postconditions
+
+* 
+
+
+
+##### Alternative Sequences
+
+1. 
+
+
+
+##### Alternate Trigger
+
+
+
+##### Alternate Postconditions
+
+* 
+
+
+
+## **Use Case #10 Description**
+
+**Date:** 
+
+**Product Name:** Studious
+
+**Problem Statement:** 
+
+**Non-functional Requirements:**
+
+
+
+**Use Case Name:** 
+
+
+
+##### Actors
+
+1. 
+
+
+
+##### Preconditions
+
+* 
+
+ 
+
+##### Triggers
+
+
+
+ 
+
+##### Primary Sequence
+
+1. 
+
+ 
+
+##### Primary Postconditions
+
+* 
+
+
+
+##### Alternative Sequences
+
+1. 
+
+
+
+##### Alternate Trigger
+
+
+
+##### Alternate Postconditions
+
+* 
+
+
+
+## **Use Case #11 Description**
+
+**Date:** 
+
+**Product Name:** Studious
+
+**Problem Statement:** 
+
+**Non-functional Requirements:**
+
+
+
+**Use Case Name:** 
+
+
+
+##### Actors
+
+1. 
+
+
+
+##### Preconditions
+
+* 
+
+ 
+
+##### Triggers
+
+
+
+ 
+
+##### Primary Sequence
+
+1. 
+
+ 
+
+##### Primary Postconditions
+
+* 
+
+
+
+##### Alternative Sequences
+
+1. 
+
+
+
+##### Alternate Trigger
+
+
+
+##### Alternate Postconditions
+
+* 
+
+
+
+## **Use Case #12 Description**
+
+**Date:** 
+
+**Product Name:** Studious
+
+**Problem Statement:** 
+
+**Non-functional Requirements:**
+
+
+
+**Use Case Name:** 
+
+
+
+##### Actors
+
+1. 
+
+
+
+##### Preconditions
+
+* 
+
+ 
+
+##### Triggers
+
+
+
+ 
+
+##### Primary Sequence
+
+1. 
+
+ 
+
+##### Primary Postconditions
+
+* 
+
+
+
+##### Alternative Sequences
+
+1. 
+
+
+
+##### Alternate Trigger
+
+
+
+##### Alternate Postconditions
+
+* 
+
+
+
+## **Use Case #13 Description**
+
+**Date:** 
+
+**Product Name:** Studious
+
+**Problem Statement:** 
+
+**Non-functional Requirements:**
+
+
+
+**Use Case Name:** 
+
+
+
+##### Actors
+
+1. 
+
+
+
+##### Preconditions
+
+* 
+
+ 
+
+##### Triggers
+
+
+
+ 
+
+##### Primary Sequence
+
+1. 
+
+ 
+
+##### Primary Postconditions
+
+* 
+
+
+
+##### Alternative Sequences
+
+1. 
+
+
+
+##### Alternate Trigger
+
+
+
+##### Alternate Postconditions
+
+* 
+
+
+
+## **Use Case #14 Description**
+
+**Date:** 
+
+**Product Name:** Studious
+
+**Problem Statement:** 
+
+**Non-functional Requirements:**
+
+
+
+**Use Case Name:** 
+
+
+
+##### Actors
+
+1. 
+
+
+
+##### Preconditions
+
+* 
+
+ 
+
+##### Triggers
+
+
+
+ 
+
+##### Primary Sequence
+
+1. 
+
+ 
+
+##### Primary Postconditions
+
+* 
+
+
+
+##### Alternative Sequences
+
+1. 
+
+
+
+##### Alternate Trigger
+
+
+
+##### Alternate Postconditions
+
+* 
+
+
+
+## **Use Case #15 Description**
+
+**Date:** 
+
+**Product Name:** Studious
+
+**Problem Statement:** 
+
+**Non-functional Requirements:**
+
+
+
+**Use Case Name:** 
+
+
+
+##### Actors
+
+1. 
+
+
+
+##### Preconditions
+
+* 
+
+ 
+
+##### Triggers
+
+
+
+ 
+
+##### Primary Sequence
+
+1. 
+
+ 
+
+##### Primary Postconditions
+
+* 
+
+
+
+##### Alternative Sequences
+
+1. 
+
+
+
+##### Alternate Trigger
+
+
+
+##### Alternate Postconditions
+
+* 
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 
+
+### 
+
+### 
