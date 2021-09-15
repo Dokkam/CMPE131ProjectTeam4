@@ -1,7 +1,14 @@
 # CMPE131Project
-Repository for CMPE131 Project with Thomas, An, Khanh, and Travis
+Team 4:
+Thomas Tran/Dokkam (https://github.com/Dokkam)
+An Le/meow2501 (https://github.com/meow2501)
+Khanh Chung/khch1997 (https://github.com/khch1997)
+Travis Lincoln/TravLincoln (https://github.com/TravLincoln)
+
+Main Github repository:
 https://github.com/TravLincoln/CMPE131ProjectTeam4
- Use Case Description
+
+Use Case Description
 
 Date: 9/10/21
 
