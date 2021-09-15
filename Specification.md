@@ -970,3 +970,127 @@ User clicks on the "sign out" button at the top left of the page
 ##### Alternate Postconditions
 
 * 
+
+
+
+## **Use Case #16 Description**
+
+**Date:** 
+
+**Product Name:** Studious
+
+**Problem Statement:** 
+
+**Non-functional Requirements:**
+
+
+
+**Use Case Name:** 
+
+
+
+##### Actors
+
+1. 
+
+
+
+##### Preconditions
+
+* 
+
+ 
+
+##### Triggers
+
+
+
+ 
+
+##### Primary Sequence
+
+1. 
+
+ 
+
+##### Primary Postconditions
+
+* 
+
+
+
+##### Alternate Trigger
+
+
+
+##### Alternative Sequences
+
+1. 
+
+
+
+##### Alternate Postconditions
+
+* 
+
+
+
+## **Use Case #17 Description**
+
+**Date:** 
+
+**Product Name:** Studious
+
+**Problem Statement:** 
+
+**Non-functional Requirements:**
+
+
+
+**Use Case Name:** 
+
+
+
+##### Actors
+
+1. 
+
+
+
+##### Preconditions
+
+* 
+
+ 
+
+##### Triggers
+
+
+
+ 
+
+##### Primary Sequence
+
+1. 
+
+ 
+
+##### Primary Postconditions
+
+* 
+
+
+
+##### Alternate Trigger
+
+
+
+##### Alternative Sequences
+
+1. 
+
+
+
+##### Alternate Postconditions
+
+* 
