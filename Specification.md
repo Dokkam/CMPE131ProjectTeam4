@@ -963,18 +963,24 @@ User uses this syntax [[name note]] to navigate to that note
 
 
 ## **Use Case #15 Description**
+
 **Date:** 09/15/2021
+
 **Product Name:** Studious
+
 **Problem Statement:** User want to track of how many hours they have studied
+
 **Non-functional Requirements:**
 - Able to see the clock
 - User must work on the apps
+
 **Use Case Name:**
 Track hours worked per week
 
 ##### Actors
 User
 Time management
+
 ##### Preconditions
 The user must be login
 At least one flash card or note must be in the account
@@ -992,17 +998,23 @@ User works on the flash card
 System automatically updates the track hours
 System updates every time a user is working
 System show the hours at the end off a week
+
 ##### Alternate Trigger
 ##### Alternative Sequences
 ##### Alternate Postconditions
 
 
 ## **Use Case #16 Description**
+
 **Date:** 09/15/2021
+
 **Product Name:** Studious
+
 **Problem Statement:** User want to know or plan what they have to do
+
 **Non-functional Requirements:**
 Display the todo list
+
 **Use Case Name:** Add todo list
 
 #####  Actors
@@ -1014,6 +1026,7 @@ User must login
 ##### Triggers
 User selected “Add todo list”
 User add the list they want to do
+
 ##### Primary Sequence
 User works on the list
 
@@ -1027,12 +1040,17 @@ System update the new things in todo list
 
 
 ## **Use Case #17 Description**
+
 **Date:** 09/15/2021
+
 **Product Name:** Studious
+
 **Problem Statement:** User want to organize and manage work
+
 **Non-functional Requirements:**
 Able to see the time
 User must work on the apps
+
 **Use Case Name:** Visualize hours worked and projects
 
 ##### Actors
