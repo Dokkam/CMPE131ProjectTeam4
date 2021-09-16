@@ -708,52 +708,56 @@ An entire page can be dedicated to previous notes taken, almost like an instant 
 
 ## **Use Case #11 Description**
 
-**Date:** 
+**Date:** 9/15/2021
 
 **Product Name:** Studious
 
-**Problem Statement:** 
+**Problem Statement:** Change order of flash cards based on how often user got answer correct
 
-**Non-functional Requirements:**
+**Non-functional Requirements:** 
+Flash cards must be displayed from left to right based on how often user got answer correct
 
 
 
-**Use Case Name:** 
+**Use Case Name:** Change order of flash cards
 
 
 
 ##### Actors
 
-1. 
+1. User
 
 
 
 ##### Preconditions
 
-* 
+* User has logged in
+* User must have at least one set of flash card saved in their file on app
 
- 
+
 
 ##### Triggers
 
+Every flash card has correct and incorrect button during memorizing mode
+Sort flash cards in order after user memorizing mode ends
 
 
- 
 
 ##### Primary Sequence
 
-1. 
+1. User clicks memorize button to enter memorizing mode
+2. Click on flash cards to reveal answers
+3. User either clicks on correct or incorrect button on each flash card after revealed
 
- 
+
 
 ##### Primary Postconditions
 
-* 
+* Flash cards are sorted in order after user memorizing mode ends
 
 
 
 ##### Alternate Trigger
-
 
 
 ##### Alternative Sequences
@@ -770,52 +774,54 @@ An entire page can be dedicated to previous notes taken, almost like an instant 
 
 ## **Use Case #12 Description**
 
-**Date:** 
+**Date:** 9/15/2021
 
 **Product Name:** Studious
 
-**Problem Statement:** 
+**Problem Statement:** User would like to find text in files
 
-**Non-functional Requirements:**
+**Non-functional Requirements:** User must see highlighted text in files if available
 
 
 
-**Use Case Name:** 
+**Use Case Name:** Find text in files
 
 
 
 ##### Actors
 
-1. 
+1. User
 
 
 
 ##### Preconditions
 
-* 
+* User has logged in
+* User must have at least one note saved in their file on app
 
  
 
 ##### Triggers
 
+User can enter text on search bar
 
 
  
-
 ##### Primary Sequence
 
-1. 
+1. User clicks on search bar
+2. Enter keys on search bar
+3. Press enter or click on search button
 
  
 
 ##### Primary Postconditions
 
-* 
+* Shows files with text highlighted
 
 
 
 ##### Alternate Trigger
-
 
 
 ##### Alternative Sequences
@@ -826,53 +832,55 @@ An entire page can be dedicated to previous notes taken, almost like an instant 
 
 ##### Alternate Postconditions
 
-* 
+* The app displays no files available if text is not avaiable
 
 
 
 ## **Use Case #13 Description**
 
-**Date:** 
+**Date:** 9/15/2021
 
 **Product Name:** Studious
 
-**Problem Statement:** 
+**Problem Statement:** User would like to rename multiple files quicklly
 
-**Non-functional Requirements:**
+**Non-functional Requirements:** The app displays renamed files
 
 
 
-**Use Case Name:** 
+**Use Case Name:** Quickly rename files using regular expressions
 
 
 
 ##### Actors
 
-1. 
+1. User
 
 
 
 ##### Preconditions
 
-* 
+* User has logged in
+* User must have at least one file saved in their file on app
 
  
 
 ##### Triggers
+Rename files button is displayed for user to click
 
 
-
- 
 
 ##### Primary Sequence
 
-1. 
-
+1. User clicks rename files button
+2. User enter new name on rename bar
+3. User clicks change
+4. User confirms action
  
 
 ##### Primary Postconditions
 
-* 
+* The name of selected files is changed
 
 
 
@@ -894,47 +902,47 @@ An entire page can be dedicated to previous notes taken, almost like an instant 
 
 ## **Use Case #14 Description**
 
-**Date:** 
+**Date:** 9/15/2021
 
 **Product Name:** Studious
 
-**Problem Statement:** 
+**Problem Statement:** User would like to navigate between notes
 
-**Non-functional Requirements:**
+**Non-functional Requirements:** The app displays the notes that user navigated
 
 
 
-**Use Case Name:** 
-
+**Use Case Name:** Add ability to navigate between notes using this syntax [[this other note]]
 
 
 ##### Actors
 
-1. 
+1. User
 
 
 
 ##### Preconditions
 
-* 
+* User has logged in
+* User must have more than one notes saved in their file on app
 
  
 
 ##### Triggers
+User uses this syntax [[name note]] to navigate to that note
 
 
-
- 
 
 ##### Primary Sequence
 
-1. 
+1. User enters this syntax [[name note]] on search bar
+2. User enters or click search
 
  
 
 ##### Primary Postconditions
 
-* 
+* User at the navigated notes
 
 
 
@@ -950,7 +958,7 @@ An entire page can be dedicated to previous notes taken, almost like an instant 
 
 ##### Alternate Postconditions
 
-* 
+* The app won't navigate if there is no note found
 
 
 
