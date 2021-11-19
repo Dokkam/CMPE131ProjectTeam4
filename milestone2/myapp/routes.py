@@ -20,9 +20,8 @@ def logout():
 def hello():
     name = 'Travis'
     people = {'Travis' : 25}
-    title = 'My HomePage'
-    posts = [{'author': 'john', 'body': 'Beautiful day in Portland!'},{'author': 'Susan', 'body': 'Today was a good day!'}]
-    return render_template("hello.html", name=name, people=people, title=title, posts=posts)
+    title = 'Studious HomePage'
+    return render_template("hello.html", name=name, people=people, title=title)
 
 @myapp_obj.route("/login", methods=['GET', 'POST'])
 def login():
@@ -43,7 +42,6 @@ def login():
 def getMember(name):
     return 'Hi ' + name
 
-@myapp_obj.route("/notes")
+@myapp_obj.route("/notes", methods=['GET','POST'])
 def flashcard():
-    title = 'Note Taker'
-    return render_template("notes.html",title=title)
+    return render_template("notes.html",title='Note Taker')
