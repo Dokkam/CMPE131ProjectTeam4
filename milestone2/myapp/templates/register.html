@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+	<title>{{ title }}</title>
+</head>
+
+<h1>
+	<a href="/login">Already have an account? Log In</a>
+</h1>
+<p>Let's Get Started!</p><br>
+<p>Please enter a Username and Password</p>
+<form method = "POST" novalidate >
+	        {{ form.hidden_tag() }}
+
+		        <p> {{ form.username.label }} <br>
+			            {{ form.username }}</p>
+			        <p> {{ form.password.label }} <br>
+				            {{ form.password }}
+
+					        <p> {{ form.submit() }} </p>
+
+</form>
+{% endblock %}
