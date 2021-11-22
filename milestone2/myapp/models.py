@@ -29,6 +29,14 @@ class Post(db.Model):
     def __repr__(self):
         return f'<Post {self.id}: {self.body}>'
 
+class todo_list(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    todo_item = db.Column(db.String(256))
+    complete = db.Column(db.Boolean)
+
+    def __repr__(self):
+        return self.todo_item
+
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
