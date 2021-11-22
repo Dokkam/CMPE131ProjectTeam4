@@ -9,19 +9,21 @@ from flask_login import current_user, login_user, logout_user, login_required
 @myapp_obj.route("/loggedin")
 @login_required
 def log():
-    return("You are logged in")
+    title  = "You are logged in"
+    return render_template("loggedin.html",title=title)
 
 @myapp_obj.route("/logout")
+@login_required
 def logout():
     logout_user()
+    title = "You have been logged out"
     return redirect('/')
+    return render_template("hello.html",title=title)
 
 @myapp_obj.route("/")
 def hello():
-    name = 'Travis'
-    people = {'Travis' : 25}
     title = 'Studious HomePage'
-    return render_template("hello.html", name=name, people=people, title=title)
+    return render_template("hello.html",title=title)
 
 @myapp_obj.route("/login", methods=['GET', 'POST'])
 def login():
