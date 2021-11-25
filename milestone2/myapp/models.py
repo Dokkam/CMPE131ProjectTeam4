@@ -37,6 +37,10 @@ class todo_list(db.Model):
     def __repr__(self):
         return self.todo_item
 
+class flash_cards(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    secure_filename = db.Column(db.String)
+
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
