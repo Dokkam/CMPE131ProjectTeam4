@@ -117,4 +117,38 @@ def show_note(title):
             return render_template('note.html',
                 note=markdown.markdown(text),
                 title=title)
+    return redirect('/')
+
+    # Code to render markdown files into flash cards
+@myapp_obj.route("/renderFlashCard", methods=['GET', 'POST'])
+def markdownToFlashcard():
+    title = 'Flash Cards'
+    form = uploadForm()
+    if form.validate_on_submit():
+        f = form.file.data
+        filename = secure_filename(f.filename)
+        f.save(os.path.join(basedir, 'flashcards', filename))
+        flash('Uploaded Flash Cards Successfully!')
+    print(basedir)
+    filenames = os.listdir(os.path.join(basedir, 'flashcards'))
+    flashCardTitles = list(sorted(re.sub(r"\.md$", "", filename)
+        for filename in filenames if filename.endswith(".md")))
+
+    return render_template('flashcards.html', form=form, title=title, cardTitles=flashCardTitles)
+
+@myapp_obj.route('/FlashCard/<title>')
+def showFlashCards(title):
+    filenames = os.listdir(os.path.join(basedir, 'flashcards'))
+    flashCardTitles = list(sorted(re.sub(r"\.md$", "", filename)
+    for filename in filenames if filename.endswith(".md")))
+
+    print(flashCardTitles)
+
+    if title in flashCardTitles:
+        with open(os.path.join(f"{basedir}/flashcards/{title}.md"), 'r') as f:
+            text = f.read()
+            split = text.split("A:")
+            print(split[0][3:])
+            print(split[1])
+            return render_template('flashcard.html', flashcard=markdown.markdown(text), title=title)
     return redirect('/')   
