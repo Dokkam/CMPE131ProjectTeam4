@@ -1,6 +1,6 @@
 import os, re, markdown
 from myapp import myapp_obj, basedir
-from myapp.forms import LoginForm, RegisterForm, FileForm
+from myapp.forms import LoginForm, RegisterForm, FileForm, uploadForm
 from flask import Flask, render_template, flash, redirect, request, url_for
 from myapp import db
 from myapp.models import User, Post, todo_list
