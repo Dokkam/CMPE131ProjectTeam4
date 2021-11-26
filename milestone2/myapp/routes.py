@@ -92,7 +92,7 @@ def upload_note():
             basedir, 'notes', filename
         ))
         flash('Uploaded note successfully')
-    print(basedir)
+
     filenames = os.listdir(os.path.join(basedir, 'notes'))
     note_titles = list(sorted(re.sub(r"\.md$", "", filename)
         for filename in filenames if filename.endswith(".md")))
@@ -108,8 +108,6 @@ def show_note(title):
     filenames = os.listdir(os.path.join(basedir, 'notes'))
     note_titles = list(sorted(re.sub(r"\.md$", "", filename)
         for filename in filenames if filename.endswith(".md")))
-
-    print(note_titles)
 
     if title in note_titles:
         with open(os.path.join(f"{basedir}/notes/{title}.md"), 'r') as f:
