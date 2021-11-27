@@ -92,7 +92,7 @@ def upload_note():
             basedir, 'notes', filename
         ))
         flash('Uploaded note successfully')
-    print(basedir)
+
     filenames = os.listdir(os.path.join(basedir, 'notes'))
     note_titles = list(sorted(re.sub(r"\.md$", "", filename)
         for filename in filenames if filename.endswith(".md")))
@@ -108,8 +108,6 @@ def show_note(title):
     filenames = os.listdir(os.path.join(basedir, 'notes'))
     note_titles = list(sorted(re.sub(r"\.md$", "", filename)
         for filename in filenames if filename.endswith(".md")))
-
-    print(note_titles)
 
     if title in note_titles:
         with open(os.path.join(f"{basedir}/notes/{title}.md"), 'r') as f:
@@ -129,7 +127,7 @@ def markdownToFlashcard():
         filename = secure_filename(f.filename)
         f.save(os.path.join(basedir, 'flashcards', filename))
         flash('Uploaded Flash Cards Successfully!')
-    print(basedir)
+
     filenames = os.listdir(os.path.join(basedir, 'flashcards'))
     flashCardTitles = list(sorted(re.sub(r"\.md$", "", filename)
         for filename in filenames if filename.endswith(".md")))
@@ -140,15 +138,10 @@ def markdownToFlashcard():
 def showFlashCards(title):
     filenames = os.listdir(os.path.join(basedir, 'flashcards'))
     flashCardTitles = list(sorted(re.sub(r"\.md$", "", filename)
-    for filename in filenames if filename.endswith(".md")))
-
-    print(flashCardTitles)
+        for filename in filenames if filename.endswith(".md")))
 
     if title in flashCardTitles:
         with open(os.path.join(f"{basedir}/flashcards/{title}.md"), 'r') as f:
             text = f.read()
-            split = text.split("A:")
-            print(split[0][3:])
-            print(split[1])
             return render_template('flashcard.html', flashcard=markdown.markdown(text), title=title)
     return redirect('/')   
