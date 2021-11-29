@@ -4,11 +4,7 @@
 <head>
 	<title>{{ title }}</title>
 </head>
-
-<h1>
-	<a href="/login">Already have an account? Log In</a>
-</h1>
-<p>Let's Get Started!</p><br>
+<p>Let's Get Started!</p>
 <p>Please enter a Username and Password</p>
 <form method = "POST" novalidate >
 	        {{ form.hidden_tag() }}
@@ -21,4 +17,8 @@
 					        <p> {{ form.submit() }} </p>
 
 </form>
+<p>
+	<a href="/login">Already have an account? Log In</a><br>
+ 	<a href="/delete">Done with Studious? Delete Account</a>
+</p>
 {% endblock %}

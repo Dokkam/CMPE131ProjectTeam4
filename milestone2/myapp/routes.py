@@ -13,6 +13,7 @@ def log():
     return("You are logged in")
 
 @myapp_obj.route("/logout")
+@login_required
 def logout():
     logout_user()
     return redirect('/') #link is pressed and will redirect user to home page
@@ -53,7 +54,8 @@ def register():
         return redirect("/login")
     return render_template("register.html",form=form)
 
-@myapp_obj.route("/delete",)
+@myapp_obj.route("/delete")
+@login_required
 def delete():
     user = User.query.filter_by(id=1).delete() #should delte first user from user table
     db.session.commit()
