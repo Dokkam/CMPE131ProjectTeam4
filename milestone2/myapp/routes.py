@@ -15,7 +15,7 @@ def log():
 @myapp_obj.route("/logout")
 def logout():
     logout_user()
-    return redirect('/')
+    return redirect('/') #link is pressed and will redirect user to home page
 
 @myapp_obj.route("/")
 def hello():
@@ -47,11 +47,17 @@ def register():
    # all_users = User.query.all()
 
     if form.validate_on_submit():
-        new_user = User(username=form.username.data, password = form.password.data)
+        new_user = User(username=form.username.data, password = form.password.data) #records input of username and password
         db.session.add(new_user)
         db.session.commit()
         return redirect("/login")
     return render_template("register.html",form=form)
+
+@myapp_obj.route("/delete",)
+def delete():
+    user = User.query.filter_by(id=1).delete() #should delte first user from user table
+    db.session.commit()
+    return redirect("/register")
 
 # code for To-Do list
 @myapp_obj.route('/todolist')
