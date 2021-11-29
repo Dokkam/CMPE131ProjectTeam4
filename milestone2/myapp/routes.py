@@ -1,6 +1,6 @@
 import os, re, markdown
 from myapp import myapp_obj, basedir
-from myapp.forms import LoginForm, RegisterForm, FileForm, uploadForm
+from myapp.forms import LoginForm, RegisterForm, FileForm, uploadForm, SearchForm
 from flask import Flask, render_template, flash, redirect, request, url_for
 from myapp import db
 from myapp.models import User, Post, todo_list
@@ -145,3 +145,25 @@ def showFlashCards(title):
             text = f.read()
             return render_template('flashcard.html', flashcard=markdown.markdown(text), title=title)
     return redirect('/')   
+
+# code for find text
+@myapp_obj.route("/search", methods=['GET', 'POST'])
+def search():
+    search = SearchForm()
+    if search.validate_on_submit():
+        result = search.result.data
+        filenames = os.listdir(os.path.join(basedir, 'notes'))
+        results = []
+
+        print(filenames)
+
+        for filename in filenames:
+            note = os.path.join(f"{basedir}/notes/{filename}")
+
+            with open(note, 'r') as f:
+                if result in f.read():
+                    results.append(f"{filename}")
+                    print(result)
+        
+        return render_template('result.html', results = results)    
+    return render_template('search.html', form = search)

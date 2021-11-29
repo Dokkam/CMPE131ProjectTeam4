@@ -24,3 +24,7 @@ class FileForm(FlaskForm):
 class uploadForm(FlaskForm):
     file = FileField('Document', validators = [FileRequired(), FileAllowed(['md', 'markdown'], 'Markdown document only!')])
     submit = SubmitField('Upload')
+
+class SearchForm(FlaskForm):
+    result = StringField('Result', validators=[DataRequired()])
+    submit = SubmitField('Search')
