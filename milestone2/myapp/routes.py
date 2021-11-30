@@ -160,18 +160,19 @@ def search():
     search = SearchForm()
     if search.validate_on_submit():
         result = search.result.data
+
+        # Navigate note handler
+        if result.startswith('[[') and result.endswith(']]'):
+            title = re.search('\[\[(.*?)\]\]', result).group(1)
+            return redirect(url_for('show_note', title=title))
+
         filenames = os.listdir(os.path.join(basedir, 'notes'))
         results = []
-
-        print(filenames)
-
         for filename in filenames:
             note = os.path.join(f"{basedir}/notes/{filename}")
-
             with open(note, 'r') as f:
                 if result in f.read():
                     results.append(f"{filename}")
-                    print(result)
         
         return render_template('result.html', results = results)    
     return render_template('search.html', form = search)

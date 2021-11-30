@@ -1,33 +1,37 @@
- <!DOCTYPE html>
- <html>     
-	 <head>
-		{% if title %}
-		 <title>{{ title }}!</title>
-		 {% else %}
-		  <title >No Name </title>
-		  {% endif %} 
-         </head>
-	 <body>
-		 <div>
-			 <h1>Studious:</h1>
-			 <a href="/">Home</a>
-			 <a href="/register">Register</a>
-			 <a href="/login">Login</a>
-			 <a href="/logout">Logout</a>
-			 <a href="/notes">Notes</a>
-			 <a href="/todolist">To-Do List</a>
-			 <a href="/renderFlashCard">Flash Cards</a>
-		 </div>
-		 {% with messages = get_flashed_messages() %}
-		 {% if messages %}
-		 <ul>
-			 {% for m in messages %}
-			 <li>{{ m }}</li>
-			 {% endfor %}
-		</ul>
-		{% endif %}
-		{% endwith %}
-        {% block content %}
-	{% endblock %}	 
-	</body>
- </html>
+<!DOCTYPE html>
+<html>
+
+<head>
+	{% if title %}
+	<title>{{ title }}!</title>
+	{% else %}
+	<title>No Name </title>
+	{% endif %}
+</head>
+
+<body>
+	<div>
+		<h1>Studious:</h1>
+		<a href="/">Home</a>
+		<a href="/register">Register</a>
+		<a href="/login">Login</a>
+		<a href="/logout">Logout</a>
+		<a href="/notes">Notes</a>
+		<a href="/todolist">To-Do List</a>
+		<a href="/renderFlashCard">Flash Cards</a>
+		<a href="/search">Search</a>
+	</div>
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	<ul>
+		{% for m in messages %}
+		<li>{{ m }}</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+	{% endwith %}
+	{% block content %}
+	{% endblock %}
+</body>
+
+</html>
