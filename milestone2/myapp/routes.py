@@ -171,8 +171,15 @@ def search():
         for filename in filenames:
             note = os.path.join(f"{basedir}/notes/{filename}")
             with open(note, 'r') as f:
-                if result in f.read():
-                    results.append(f"{filename}")
+                content = f.read()
+                if result in content:
+                    content = content.replace(result, f'<mark>{result}</mark>')
+                    note = {
+                        'title': filename,
+                        'content': markdown.markdown(content)
+                    }
+                    results.append(note)
+                    
         
         return render_template('result.html', results = results)    
     return render_template('search.html', form = search)
