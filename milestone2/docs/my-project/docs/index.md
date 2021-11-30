@@ -1,17 +1,31 @@
-# Welcome to MkDocs
+## Install
+* `brew install python3` - Install Python itself
+* `pip3 install flask` - Install Flask
+* `pip3 install sqlalchemy` - Install Sqlalchemy
+* `pip3 install -U Flask-WTF` - Install WTF Forms
+* `pip3 install Flask-Markdown` - Install Markdown
+* `pip3 install Flask-Login` - Install Flask Login Extension
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## Start
+* Open project directory and type `python3 run.py`
+* Open `http://127.0.0.1:5000/` in the browser
 
 ## Project layout
-
-    mkdocs.yml    # The configuration file.
+Studious/
+  StudiousDocs/
     docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+      index.md  		    # The documentation homepage
+      routes.md	        # Lists classes/functions in each file
+      mkdocs.yml
+  myapp/
+    templates/ 		      # Contains all the html pages
+    flashcards/         # Flashcard Directory
+    notes/              # Notes Directory       
+    app.db         		  # Database
+    __init__.py    		  # Configuration of projects
+    forms.py       		  # Class forms for implementation UI
+    models.py      		  # Class models for database
+    routes.py      		  # routers
+  .gitignore
+  run.py             		# Python file to run the website
+  Specifications.md  		# Use cases markdown file
