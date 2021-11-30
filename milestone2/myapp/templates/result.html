@@ -4,7 +4,13 @@
 <h1>Results</h1>
 <ul>
   {% for result in results %}
-  <li>{{ result }}</li>
+  <li>
+    <div>
+      <p>{{ result.title }}</p>
+      {{ result.content|safe }}
+    </div>
+    <hr>
+  </li>
   {% endfor %}
 </ul>
 {% endblock %}
