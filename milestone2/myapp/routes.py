@@ -33,13 +33,6 @@ def login():
         return redirect('/loggedin')
     return render_template("login.html", form=form)
 
-'''
-@myapp_obj.route("/notes", methods=['GET','POST'])
-def flashcard():
-    title='Note Taker:'
-    return render_template("notes.html",title=title)
-'''
-
 @myapp_obj.route("/register" ,methods=['GET','POST'])
 def register():
     form = RegisterForm()
