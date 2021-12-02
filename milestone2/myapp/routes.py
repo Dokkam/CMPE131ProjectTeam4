@@ -19,11 +19,9 @@ def logout():
     return redirect('/') #link is pressed and will redirect user to home page
 
 @myapp_obj.route("/")
-def hello():
-    name = 'Travis'
-    people = {'Travis' : 25}
+def index():
     title = 'Studious HomePage'
-    return render_template("hello.html", name=name, people=people, title=title)
+    return render_template("index.html", title=title)
 
 @myapp_obj.route("/login", methods=['GET', 'POST'])
 def login():
