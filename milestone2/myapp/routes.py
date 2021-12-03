@@ -1,6 +1,6 @@
 import os, re, markdown
 from myapp import myapp_obj, basedir
-from myapp.forms import LoginForm, RegisterForm, FileForm, uploadForm, SearchForm
+from myapp.forms import LoginForm, RegisterForm, FileForm, SearchForm
 from flask import Flask, render_template, flash, redirect, request, url_for
 from myapp import db
 from myapp.models import User, Note, todo_list
@@ -96,21 +96,22 @@ def upload_note():
     form = FileForm()
     if form.validate_on_submit():
         f = form.file.data
-
-        filename = secure_filename(f.filename)
-        f.save(os.path.join(
-            basedir, 'notes', filename
-        ))
+        note = Note(content=f.read(), user_id=current_user.id)
+        db.session.add(note)
+        db.session.commit()
         flash('Uploaded note successfully')
 
-    filenames = os.listdir(os.path.join(basedir, 'notes'))
-    note_titles = list(sorted(re.sub(r"\.md$", "", filename)
-        for filename in filenames if filename.endswith(".md")))
+    db_notes = Note.query.all()
+    notes = []
+    for note in db_notes:
+        note = note.__dict__
+        note['content'] = markdown.markdown(note['content'].decode("utf-8"))
+        notes.append(note)
 
     return render_template('notes.html', 
         form=form, 
         title=title, 
-        note_titles=note_titles
+        notes=notes
     )
 
 @myapp_obj.route('/note/<title>')
