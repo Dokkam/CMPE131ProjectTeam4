@@ -101,7 +101,7 @@ def upload_note():
         db.session.commit()
         flash('Uploaded note successfully')
         return redirect('/notes')
-        
+
     db_notes = Note.query.all()
     notes = []
     for note in db_notes:
@@ -119,7 +119,7 @@ def upload_note():
 @myapp_obj.route("/renderFlashCard", methods=['GET', 'POST'])
 def markdownToFlashcard():
     title = 'Flash Cards'
-    form = uploadForm()
+    form = FileForm()
     if form.validate_on_submit():
         f = form.file.data
         filename = secure_filename(f.filename)
