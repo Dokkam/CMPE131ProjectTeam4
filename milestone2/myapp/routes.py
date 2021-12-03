@@ -46,6 +46,10 @@ def register():
     form = RegisterForm()
 
     if form.validate_on_submit():
+        user = User.query.filter_by(username=form.username.data).first()
+        if user:
+            flash('Username is existed')
+            return redirect("/register")
         new_user = User(username=form.username.data, password=form.password.data) #records input of username and password
         new_user.set_password(new_user.password)
         db.session.add(new_user)
