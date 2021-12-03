@@ -26,11 +26,15 @@ def index():
 @myapp_obj.route("/login", methods=['GET', 'POST'])
 def login():
     form = LoginForm()
-    getuser=User.query.all()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         login_user(user)
-        return redirect('/loggedin')
+        flash('Logged in successfully.')
+        return render_template(
+            "index.html", 
+            title='Studious HomePage',
+            user=user
+        )
     return render_template("login.html", form=form)
 
 @myapp_obj.route("/register" ,methods=['GET','POST'])
