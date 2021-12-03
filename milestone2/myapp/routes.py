@@ -1,67 +1,68 @@
 import os, re, markdown
 from myapp import myapp_obj, basedir
-from myapp.forms import LoginForm, RegisterForm, FileForm, uploadForm, SearchForm
+from myapp.forms import LoginForm, RegisterForm, FileForm, SearchForm
 from flask import Flask, render_template, flash, redirect, request, url_for
 from myapp import db
-from myapp.models import User, Post, todo_list
+from myapp.models import User, Note, todo_list
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.utils import secure_filename
 
-@myapp_obj.route("/loggedin")
-@login_required
-def log():
-    return("You are logged in")
-
+# User routes
 @myapp_obj.route("/logout")
 @login_required
 def logout():
     logout_user()
-    return redirect('/') #link is pressed and will redirect user to home page
+    return redirect('/')
+
+@myapp_obj.route("/delete")
+@login_required
+def delete():
+    user = User.query.filter_by(id=current_user.id).first()
+    db.session.delete(user)
+    db.session.commit()
+    flash('Deleted account successfully')
+    return redirect("/register")
 
 @myapp_obj.route("/")
-def hello():
-    name = 'Travis'
-    people = {'Travis' : 25}
+def index():
     title = 'Studious HomePage'
-    return render_template("hello.html", name=name, people=people, title=title)
+    return render_template("index.html", title=title)
 
 @myapp_obj.route("/login", methods=['GET', 'POST'])
 def login():
     form = LoginForm()
-    getuser=User.query.all()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
-        login_user(user)
-        return redirect('/loggedin')
-    return render_template("login.html", form=form)
+        if user and user.check_password(form.password.data):
+            login_user(user)
+            flash('Logged in successfully.')
+            return render_template(
+                "index.html", 
+                title='Studious HomePage',
+                user=user
+            )
+        else:
+            flash('Username or password is wrong')
 
-'''
-@myapp_obj.route("/notes", methods=['GET','POST'])
-def flashcard():
-    title='Note Taker:'
-    return render_template("notes.html",title=title)
-'''
+    return render_template("login.html", form=form)
 
 @myapp_obj.route("/register" ,methods=['GET','POST'])
 def register():
     form = RegisterForm()
-   # all_users = User.query.all()
 
     if form.validate_on_submit():
-        new_user = User(username=form.username.data, password = form.password.data) #records input of username and password
+        user = User.query.filter_by(username=form.username.data).first()
+        if user:
+            flash('Username is existed')
+            return redirect("/register")
+        new_user = User(username=form.username.data, password=form.password.data)
+        new_user.set_password(new_user.password)
         db.session.add(new_user)
         db.session.commit()
         return redirect("/login")
     return render_template("register.html",form=form)
 
-@myapp_obj.route("/delete")
-@login_required
-def delete():
-    user = User.query.filter_by(id=1).delete() #should delte first user from user table
-    db.session.commit()
-    return redirect("/register")
-
-# code for To-Do list
+# Todo List routes
 @myapp_obj.route('/todolist')
 def todolist():
     title = 'To-Do List'
@@ -87,7 +88,7 @@ def complete(id):
 
     return redirect(url_for('todolist'))
 
-# code for upload
+# Note routes
 @myapp_obj.route('/notes', methods=['GET', 'POST'])
 def upload_note():
     title='Note List:'
@@ -95,41 +96,30 @@ def upload_note():
     form = FileForm()
     if form.validate_on_submit():
         f = form.file.data
-        filename = secure_filename(f.filename)
-        f.save(os.path.join(
-            basedir, 'notes', filename
-        ))
+        note = Note(content=f.read(), user_id=current_user.id)
+        db.session.add(note)
+        db.session.commit()
         flash('Uploaded note successfully')
+        return redirect('/notes')
 
-    filenames = os.listdir(os.path.join(basedir, 'notes'))
-    note_titles = list(sorted(re.sub(r"\.md$", "", filename)
-        for filename in filenames if filename.endswith(".md")))
+    db_notes = Note.query.all()
+    notes = []
+    for note in db_notes:
+        note = note.__dict__
+        note['content'] = markdown.markdown(note['content'].decode("utf-8"))
+        notes.append(note)
 
     return render_template('notes.html', 
         form=form, 
         title=title, 
-        note_titles=note_titles
+        notes=notes
     )
 
-@myapp_obj.route('/note/<title>')
-def show_note(title):
-    filenames = os.listdir(os.path.join(basedir, 'notes'))
-    note_titles = list(sorted(re.sub(r"\.md$", "", filename)
-        for filename in filenames if filename.endswith(".md")))
-
-    if title in note_titles:
-        with open(os.path.join(f"{basedir}/notes/{title}.md"), 'r') as f:
-            text = f.read()
-            return render_template('note.html',
-                note=markdown.markdown(text),
-                title=title)
-    return redirect('/')
-
-    # Code to render markdown files into flash cards
+# Flash Card routes
 @myapp_obj.route("/renderFlashCard", methods=['GET', 'POST'])
 def markdownToFlashcard():
     title = 'Flash Cards'
-    form = uploadForm()
+    form = FileForm()
     if form.validate_on_submit():
         f = form.file.data
         filename = secure_filename(f.filename)
@@ -159,27 +149,18 @@ def showFlashCards(title):
 def search():
     search = SearchForm()
     if search.validate_on_submit():
-        result = search.result.data
+        text = search.text.data
 
-        # Navigate note handler
-        if result.startswith('[[') and result.endswith(']]'):
-            title = re.search('\[\[(.*?)\]\]', result).group(1)
-            return redirect(url_for('show_note', title=title))
-
-        filenames = os.listdir(os.path.join(basedir, 'notes'))
+        db_notes = Note.query.all()
         results = []
-        for filename in filenames:
-            note = os.path.join(f"{basedir}/notes/{filename}")
-            with open(note, 'r') as f:
-                content = f.read()
-                if result in content:
-                    content = content.replace(result, f'<mark>{result}</mark>')
-                    note = {
-                        'title': filename,
-                        'content': markdown.markdown(content)
-                    }
-                    results.append(note)
-                    
+        for note in db_notes:
+            note = note.__dict__
+            note['content'] = note['content'].decode("utf-8")
+            if text in note['content']:
+                note['content'] = note['content'].replace(text, f'<mark>{text}</mark>')
+                note['content'] = markdown.markdown(note['content'])
+                results.append(note)      
         
-        return render_template('result.html', results = results)    
-    return render_template('search.html', form = search)
+        print(results)
+        return render_template('result.html', results=results)    
+    return render_template('search.html', form=search)
