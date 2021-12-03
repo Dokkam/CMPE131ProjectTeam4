@@ -14,6 +14,15 @@ def logout():
     logout_user()
     return redirect('/')
 
+@myapp_obj.route("/delete")
+@login_required
+def delete():
+    user = User.query.filter_by(id=current_user.id).first()
+    db.session.delete(user)
+    db.session.commit()
+    flash('Deleted account successfully')
+    return redirect("/register")
+
 @myapp_obj.route("/")
 def index():
     title = 'Studious HomePage'
@@ -52,13 +61,6 @@ def register():
         db.session.commit()
         return redirect("/login")
     return render_template("register.html",form=form)
-
-@myapp_obj.route("/delete")
-@login_required
-def delete():
-    user = User.query.filter_by(id=1).delete()
-    db.session.commit()
-    return redirect("/register")
 
 # Todo List routes
 @myapp_obj.route('/todolist')
