@@ -3,7 +3,7 @@ from myapp import myapp_obj, basedir
 from myapp.forms import LoginForm, RegisterForm, FileForm, uploadForm, SearchForm
 from flask import Flask, render_template, flash, redirect, request, url_for
 from myapp import db
-from myapp.models import User, Post, todo_list
+from myapp.models import User, Note, todo_list
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.utils import secure_filename
 
@@ -28,22 +28,26 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
-        login_user(user)
-        flash('Logged in successfully.')
-        return render_template(
-            "index.html", 
-            title='Studious HomePage',
-            user=user
-        )
+        if user and user.check_password(form.password.data):
+            login_user(user)
+            flash('Logged in successfully.')
+            return render_template(
+                "index.html", 
+                title='Studious HomePage',
+                user=user
+            )
+        else:
+            flash('Username or password is wrong')
+
     return render_template("login.html", form=form)
 
 @myapp_obj.route("/register" ,methods=['GET','POST'])
 def register():
     form = RegisterForm()
-   # all_users = User.query.all()
 
     if form.validate_on_submit():
-        new_user = User(username=form.username.data, password = form.password.data) #records input of username and password
+        new_user = User(username=form.username.data, password=form.password.data) #records input of username and password
+        new_user.set_password(new_user.password)
         db.session.add(new_user)
         db.session.commit()
         return redirect("/login")
@@ -90,6 +94,7 @@ def upload_note():
     form = FileForm()
     if form.validate_on_submit():
         f = form.file.data
+
         filename = secure_filename(f.filename)
         f.save(os.path.join(
             basedir, 'notes', filename
