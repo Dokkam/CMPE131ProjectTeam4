@@ -114,20 +114,6 @@ def upload_note():
         notes=notes
     )
 
-@myapp_obj.route('/note/<title>')
-def show_note(title):
-    filenames = os.listdir(os.path.join(basedir, 'notes'))
-    note_titles = list(sorted(re.sub(r"\.md$", "", filename)
-        for filename in filenames if filename.endswith(".md")))
-
-    if title in note_titles:
-        with open(os.path.join(f"{basedir}/notes/{title}.md"), 'r') as f:
-            text = f.read()
-            return render_template('note.html',
-                note=markdown.markdown(text),
-                title=title)
-    return redirect('/')
-
 # Flash Card routes
 @myapp_obj.route("/renderFlashCard", methods=['GET', 'POST'])
 def markdownToFlashcard():
