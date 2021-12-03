@@ -7,16 +7,12 @@ from myapp.models import User, Note, todo_list
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.utils import secure_filename
 
-@myapp_obj.route("/loggedin")
-@login_required
-def log():
-    return("You are logged in")
-
+# User routes
 @myapp_obj.route("/logout")
 @login_required
 def logout():
     logout_user()
-    return redirect('/') #link is pressed and will redirect user to home page
+    return redirect('/')
 
 @myapp_obj.route("/")
 def index():
@@ -50,7 +46,7 @@ def register():
         if user:
             flash('Username is existed')
             return redirect("/register")
-        new_user = User(username=form.username.data, password=form.password.data) #records input of username and password
+        new_user = User(username=form.username.data, password=form.password.data)
         new_user.set_password(new_user.password)
         db.session.add(new_user)
         db.session.commit()
@@ -60,11 +56,11 @@ def register():
 @myapp_obj.route("/delete")
 @login_required
 def delete():
-    user = User.query.filter_by(id=1).delete() #should delte first user from user table
+    user = User.query.filter_by(id=1).delete()
     db.session.commit()
     return redirect("/register")
 
-# code for To-Do list
+# Todo List routes
 @myapp_obj.route('/todolist')
 def todolist():
     title = 'To-Do List'
@@ -90,7 +86,7 @@ def complete(id):
 
     return redirect(url_for('todolist'))
 
-# code for upload
+# Note routes
 @myapp_obj.route('/notes', methods=['GET', 'POST'])
 def upload_note():
     title='Note List:'
@@ -129,7 +125,7 @@ def show_note(title):
                 title=title)
     return redirect('/')
 
-    # Code to render markdown files into flash cards
+# Flash Card routes
 @myapp_obj.route("/renderFlashCard", methods=['GET', 'POST'])
 def markdownToFlashcard():
     title = 'Flash Cards'
