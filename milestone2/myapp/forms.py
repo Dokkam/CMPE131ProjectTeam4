@@ -22,5 +22,5 @@ class FileForm(FlaskForm):
     submit = SubmitField('Upload')
 
 class SearchForm(FlaskForm):
-    result = StringField('Result', validators=[DataRequired()])
+    text = StringField('Text', validators=[DataRequired()])
     submit = SubmitField('Search')

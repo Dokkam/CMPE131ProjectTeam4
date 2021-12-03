@@ -100,7 +100,8 @@ def upload_note():
         db.session.add(note)
         db.session.commit()
         flash('Uploaded note successfully')
-
+        return redirect('/notes')
+        
     db_notes = Note.query.all()
     notes = []
     for note in db_notes:
@@ -148,27 +149,18 @@ def showFlashCards(title):
 def search():
     search = SearchForm()
     if search.validate_on_submit():
-        result = search.result.data
+        text = search.text.data
 
-        # Navigate note handler
-        if result.startswith('[[') and result.endswith(']]'):
-            title = re.search('\[\[(.*?)\]\]', result).group(1)
-            return redirect(url_for('show_note', title=title))
-
-        filenames = os.listdir(os.path.join(basedir, 'notes'))
+        db_notes = Note.query.all()
         results = []
-        for filename in filenames:
-            note = os.path.join(f"{basedir}/notes/{filename}")
-            with open(note, 'r') as f:
-                content = f.read()
-                if result in content:
-                    content = content.replace(result, f'<mark>{result}</mark>')
-                    note = {
-                        'title': filename,
-                        'content': markdown.markdown(content)
-                    }
-                    results.append(note)
-                    
+        for note in db_notes:
+            note = note.__dict__
+            note['content'] = note['content'].decode("utf-8")
+            if text in note['content']:
+                note['content'] = note['content'].replace(text, f'<mark>{text}</mark>')
+                note['content'] = markdown.markdown(note['content'])
+                results.append(note)      
         
-        return render_template('result.html', results = results)    
-    return render_template('search.html', form = search)
+        print(results)
+        return render_template('result.html', results=results)    
+    return render_template('search.html', form=search)

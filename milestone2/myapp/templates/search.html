@@ -6,8 +6,9 @@
 <form method="POST" novalidate>
 	{{ form.hidden_tag() }}
 
-	<p> Enter your text: <br> {{ form.result(size=64) }} <br>
-	<br> {{ form.submit() }} </p>
+	<p> Enter your text: <br> {{ form.text(size=64) }} <br>
+		<br> {{ form.submit() }}
+	</p>
 
 </form>
 {% endblock %}
