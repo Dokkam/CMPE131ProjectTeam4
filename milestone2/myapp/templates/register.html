@@ -4,8 +4,10 @@
 <head>
 	<title>{{ title }}</title>
 </head>
+<div>
 <p>Let's Get Started!</p>
 <p>Please enter a Username and Password</p>
+</div>
 <form method = "POST" novalidate >
 	        {{ form.hidden_tag() }}
 
@@ -22,3 +24,5 @@
  	<a href="/delete">Done with Studious? Delete Account</a>
 </p>
 {% endblock %}
+
+

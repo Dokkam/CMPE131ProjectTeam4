@@ -24,3 +24,7 @@ class FileForm(FlaskForm):
 class SearchForm(FlaskForm):
     text = StringField('Text', validators=[DataRequired()])
     submit = SubmitField('Search')
+
+class PasswordForm(FlaskForm):
+    password = PasswordField('Password', validators=[DataRequired()])
+    submit = SubmitField("Change")

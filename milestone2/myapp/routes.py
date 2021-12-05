@@ -1,6 +1,6 @@
 import os, re, markdown
 from myapp import myapp_obj, basedir
-from myapp.forms import LoginForm, RegisterForm, FileForm, SearchForm
+from myapp.forms import LoginForm, RegisterForm, FileForm, SearchForm, PasswordForm
 from flask import Flask, render_template, flash, redirect, request, url_for
 from myapp import db
 from myapp.models import User, Note, todo_list
@@ -45,6 +45,21 @@ def login():
             flash('Username or password is wrong')
 
     return render_template("login.html", form=form)
+
+@myapp_obj.route("/changepassword",methods=['GET','POST'])
+@login_required
+def changepassword():
+    title = "Change Password"
+    form = PasswordForm()
+    if request.method == "POST":
+         if form.validate_on_submit():
+            user= User.query.filter_by(password=form.password.data).first()
+            user.password = form.password.data
+            db.session.add(user)
+            db.session.commit()
+            flash("Password updated")
+            return redirect("/changepassword")
+    return render_template("changepassword.html", form=form)
 
 @myapp_obj.route("/register" ,methods=['GET','POST'])
 def register():

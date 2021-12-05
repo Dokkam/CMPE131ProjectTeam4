@@ -2,6 +2,7 @@ import flask
 import os
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from flask_change_password import ChangePassword, ChangePasswordForm, SetPasswordForm
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
