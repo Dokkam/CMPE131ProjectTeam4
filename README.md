@@ -27,6 +27,6 @@ python3 run.py
 ```
 CTRL + Mouse 1 on the localhost link generated in your terminal!
 ```
-![]https://i.imgur.com/9paXbAu.png
+![img] https://i.imgur.com/9paXbAu.png
 
 
