@@ -15,6 +15,7 @@ def logout():
     return redirect('/')
 
 @myapp_obj.route("/delete")
+#Deletes users account when logged into the webpage. Account will be deleted when clicking the link and will redirect to home.
 @login_required
 def delete():
     user = User.query.filter_by(id=current_user.id).first()
@@ -47,6 +48,7 @@ def login():
     return render_template("login.html", form=form)
 
 @myapp_obj.route("/changepassword",methods=['GET','POST'])
+#Allows user to change password to new desired password.
 @login_required
 def changepassword():
     title = "Change Password"
@@ -73,6 +75,7 @@ def changepassword():
     return render_template("changepassword.html", title=title, form=form)
 
 @myapp_obj.route("/register" ,methods=['GET','POST'])
+#Adds new users to table, saving their username and password for future sign in
 def register():
     form = RegisterForm()
 
