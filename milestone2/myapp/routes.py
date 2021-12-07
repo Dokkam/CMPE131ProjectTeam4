@@ -11,13 +11,18 @@ from werkzeug.utils import secure_filename
 @myapp_obj.route("/logout")
 @login_required
 def logout():
+    '''
+    User will be redirected to the splash page
+    '''
     logout_user()
     return redirect('/')
 
 @myapp_obj.route("/delete")
 @login_required
 def delete():
-'''Deletes users account when logged into the webpage. Account will be deleted when clicking the link and will redirect to home.'''
+    '''
+    User can delete their account when they are logged in
+    '''
     user = User.query.filter_by(id=current_user.id).first()
     db.session.delete(user)
     db.session.commit()
@@ -26,11 +31,24 @@ def delete():
 
 @myapp_obj.route("/")
 def index():
+    '''
+    Splash page for the website
+    '''
     title = 'Studious HomePage'
     return render_template("index.html", title=title)
 
 @myapp_obj.route("/login", methods=['GET', 'POST'])
 def login():
+    '''
+    User can login if they have an already existing account
+    
+    Parameters:
+        String: username
+        String: password
+    
+    Returns:
+        User can now access locked features
+    '''
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
@@ -50,7 +68,15 @@ def login():
 @myapp_obj.route("/changepassword",methods=['GET','POST'])
 @login_required
 def changepassword():
-'''Allows user to change password to new desired password.'''
+    '''
+    User is able to change their password
+    
+    Parameters:
+        String: new password
+    Returns:
+        Message letting the user know their password has been changed
+        User is redirected to the splash page
+    '''
     title = "Change Password"
     form = PasswordForm()
     if request.method == "POST":
@@ -75,8 +101,18 @@ def changepassword():
     return render_template("changepassword.html", title=title, form=form)
 
 @myapp_obj.route("/register" ,methods=['GET','POST'])
+#Adds new users to table, saving their username and password for future sign in
 def register():
-'''Adds new users to table, saving their username and password for future sign in'''
+    '''
+    User enters a username and password for their account
+    
+    Parameters:
+        String: username
+        String: password
+        
+    Returns:
+    User is redirected to sign-in page
+    '''
     form = RegisterForm()
 
     if form.validate_on_submit():
@@ -94,6 +130,9 @@ def register():
 # Todo List routes
 @myapp_obj.route('/todolist')
 def todolist():
+    '''
+    Sorts the todo items into uncompleted and completed lists
+    '''
     title = 'To-Do List'
     complete = todo_list.query.filter_by(complete=True).all()
     incomplete = todo_list.query.filter_by(complete=False).all()
@@ -103,6 +142,15 @@ def todolist():
 
 @myapp_obj.route("/add", methods=['POST'])
 def add():
+    '''
+    Adds user's inputed item into the uncompleted list
+    
+    Parameters:
+        String: To-do item name
+        
+    Returns:
+        Adds item into uncompleted list
+    '''
     todo = todo_list(todo_item = request.form["todoitem"], complete = False)
     db.session.add(todo)
     db.session.commit()
@@ -111,6 +159,9 @@ def add():
 
 @myapp_obj.route("/complete/<id>")
 def complete(id):
+    '''
+    Adds the to-do item to the completed list
+    '''
     todo = todo_list.query.filter_by(id=int(id)).first()
     todo.complete = True
     db.session.commit()
@@ -120,6 +171,15 @@ def complete(id):
 # Note routes
 @myapp_obj.route('/notes', methods=['GET', 'POST'])
 def upload_note():
+    '''
+    User can render markdown files into notes
+    
+    Parameters:
+    file: A markdown file to input (.md, .markdown)
+    
+    Returns:
+    A link (in an unordered list) for user to view uploaded notes
+    '''
     title='Note List:'
 
     form = FileForm()
@@ -147,6 +207,20 @@ def upload_note():
 # Flash Card routes
 @myapp_obj.route("/renderFlashCard", methods=['GET', 'POST'])
 def markdownToFlashcard():
+    '''
+    User can render markdown files into flash cards
+    
+    Parameters:
+    A markdown file to input (.md, .markdown)
+    (Format of the md file has to be like
+        Q:
+        A:
+    )
+    
+    Returns:
+    A link (in an unordered list) for user to view uploaded flash cards
+    
+    '''
     title = 'Flash Cards'
     form = FileForm()
     if form.validate_on_submit():
@@ -163,6 +237,9 @@ def markdownToFlashcard():
 
 @myapp_obj.route('/FlashCard/<title>')
 def showFlashCards(title):
+    '''
+    Allows user to view the flash card after clicking its link
+    '''
     filenames = os.listdir(os.path.join(basedir, 'flashcards'))
     flashCardTitles = list(sorted(re.sub(r"\.md$", "", filename)
         for filename in filenames if filename.endswith(".md")))
@@ -176,6 +253,15 @@ def showFlashCards(title):
 # code for find text
 @myapp_obj.route("/search", methods=['GET', 'POST'])
 def search():
+    '''
+    User can search for specific keywords in their notes, rather than looking through the entire note
+    
+    Parameters:
+        String: keyword to search for
+        
+    Returns:
+        Returns a link to view the notes that contains the keyword
+    '''
     search = SearchForm()
     if search.validate_on_submit():
         text = search.text.data
