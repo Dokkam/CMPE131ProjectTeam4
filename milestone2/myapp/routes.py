@@ -53,13 +53,24 @@ def changepassword():
     form = PasswordForm()
     if request.method == "POST":
          if form.validate_on_submit():
-            user= User.query.filter_by(password=form.password.data).first()
-            user.password = form.password.data
-            db.session.add(user)
+            current_password = form.current_password.data
+            if not current_user.check_password(current_password):
+                flash('Current password is not correct')
+                return render_template("changepassword.html", title=title, form=form)
+            
+            new_password = form.new_password.data
+            confirm_password = form.confirm_password.data
+            if new_password != confirm_password:
+                flash("New password and confirm password do not match")
+                return render_template("changepassword.html", title=title, form=form)
+
+            current_user.set_password(new_password)
+            db.session.add(current_user)
             db.session.commit()
             flash("Password updated")
             return redirect("/changepassword")
-    return render_template("changepassword.html", form=form)
+            
+    return render_template("changepassword.html", title=title, form=form)
 
 @myapp_obj.route("/register" ,methods=['GET','POST'])
 def register():
