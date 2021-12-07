@@ -27,7 +27,7 @@ python3 run.py
 ```
 CTRL + Mouse 1 on the localhost link generated in your terminal!
 ```
-<img src="https://imgur.com/a/QoUUQJL" width="300">
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/QoUUQJL" data-context="false" ><a href="//imgur.com/a/QoUUQJL"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 
 
