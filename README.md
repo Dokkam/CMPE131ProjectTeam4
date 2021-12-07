@@ -28,7 +28,8 @@ python3 run.py
 CTRL + Mouse 1 on the localhost link generated in your terminal!
 ```
 
-![alt text]https://imgur.com/a/QoUUQJL
+![Imgur Image](https://i.imgur.com/9paXbAu.png)
+
 
 
 
