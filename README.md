@@ -1,4 +1,4 @@
-# # Studious!
+# Studious!
 
 Basic Web app for making studying easier!
 
@@ -28,7 +28,7 @@ python3 run.py
 CTRL + Mouse 1 on the localhost link generated in your terminal!
 ```
 
-![image-20211206173936247](C:\Users\Ut\AppData\Roaming\Typora\typora-user-images\image-20211206173936247.png)
+![alt text]https://imgur.com/a/QoUUQJL
 
 
 
