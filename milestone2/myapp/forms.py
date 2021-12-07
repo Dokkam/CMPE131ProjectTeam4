@@ -26,5 +26,7 @@ class SearchForm(FlaskForm):
     submit = SubmitField('Search')
 
 class PasswordForm(FlaskForm):
-    password = PasswordField('Password', validators=[DataRequired()])
+    current_password = PasswordField('Current Password', validators=[DataRequired()])
+    new_password = PasswordField('New Password', validators=[DataRequired()])
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired()])
     submit = SubmitField("Change")
