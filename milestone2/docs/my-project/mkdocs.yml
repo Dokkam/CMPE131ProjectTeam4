@@ -1,0 +1,4 @@
+site_name: Studious
+nav:
+  - Home: index.md
+  - Classes and Functions: classes-functions.md
