@@ -231,6 +231,24 @@ def edit_note(id):
 
     return render_template('edit-note.html', title=title, form=form)
 
+@myapp_obj.route('/notes/delete/<id>', methods=['GET', 'POST'])
+@login_required
+def delete_note(id):
+    '''
+    User can delete specified note
+
+    Parameters:
+    file: id
+
+    Returns:
+    A link (in an unordered list) for user to view notes
+    '''
+    title = 'Delete Note'
+    note = Note.query.filter_by(id=id).first()
+    db.session.delete(note)
+    db.session.commit()
+    return redirect('/notes')
+
 # Flash Card routes
 @myapp_obj.route("/renderFlashCard", methods=['GET', 'POST'])
 def markdownToFlashcard():
