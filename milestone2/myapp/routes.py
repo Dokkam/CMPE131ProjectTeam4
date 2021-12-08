@@ -279,3 +279,8 @@ def search():
         print(results)
         return render_template('result.html', results=results)    
     return render_template('search.html', form=search)
+
+@myapp_obj.route("/splash")
+def splashpage():
+   
+    return render_template("splashpage.html")
