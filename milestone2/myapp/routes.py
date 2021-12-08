@@ -284,3 +284,22 @@ def search():
 def splashpage():
    
     return render_template("splashpage.html")
+
+#code for pomodoro timer
+@myapp_obj.route("/pomodoro")
+def Pomodoro():
+    '''
+    User is able to use a pomodoro timer to get work done
+    '''
+    title = 'Pomodoro Timer'
+
+    return render_template('timer.html', title=title)
+
+@myapp_obj.route("/breakPomodoro")
+def Break():
+    '''
+    Break time after 25 minutes
+    '''
+    title = 'Break Time'
+    
+    return render_template('break.html', title = title)
