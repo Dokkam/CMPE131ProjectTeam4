@@ -191,7 +191,7 @@ def upload_note():
         flash('Uploaded note successfully')
         return redirect('/notes')
 
-    db_notes = Note.query.all()
+    db_notes = Note.query.filter_by(user_id=current_user.id).all()
     notes = []
     for note in db_notes:
         note = note.__dict__
