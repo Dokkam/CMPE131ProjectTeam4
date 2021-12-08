@@ -2,8 +2,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Hello {{ name }}! Welcome to Flash Cards!</h1>
-<p>Time to study some Flash Cards!:</p>
+<h1>Hello{{ name }}! Welcome to our flash card feature!</h1>
+<br>
+<div>
+        <p>Time to study some Flash Cards!</p>
+        <p>Here you can choose a markdown file to render as a viewable flashcard!</p>
+        <p>After you choose a file click the Upload button</p>
+</div>
+
+
+<br>
 <form method="POST" novalidate enctype="multipart/form-data">
         {{ form.hidden_tag() }}
         {% if form.file.errors %}
@@ -16,6 +24,15 @@
         <p> {{ form.file }} </p>
         <p> {{ form.submit() }} </p>
 </form>
+<br>
+<div>
+        <p>Please Note!</p>
+        <p>The markdown file has to be in a specific format!</p>
+        <p>Q:Example Subject</p>
+        <p>A:Example Answer</p>
+</div>
+<br>
+<div>
 <p> {{title}} </p>
 <ul>
         {% for flashCardTitles in cardTitles %}
@@ -26,5 +43,6 @@
         </li>
         {% endfor %}
 </ul>
+</div>
 
 {% endblock %}
