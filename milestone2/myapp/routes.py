@@ -1,6 +1,6 @@
 import os, re, markdown
 from myapp import myapp_obj, basedir
-from myapp.forms import LoginForm, RegisterForm, FileForm, SearchForm, PasswordForm
+from myapp.forms import LoginForm, RegisterForm, FileForm, SearchForm, PasswordForm, EditNoteForm
 from flask import Flask, render_template, flash, redirect, request, url_for
 from myapp import db
 from myapp.models import User, Note, todo_list
@@ -195,7 +195,10 @@ def upload_note():
     notes = []
     for note in db_notes:
         note = note.__dict__
-        note['content'] = markdown.markdown(note['content'].decode("utf-8"))
+        if isinstance(note['content'], bytes):
+            note['content'] = markdown.markdown(note['content'].decode('utf-8'))
+        else:
+            note['content'] = markdown.markdown(note['content'])
         notes.append(note)
 
     return render_template('notes.html', 
@@ -203,6 +206,30 @@ def upload_note():
         title=title, 
         notes=notes
     )
+@myapp_obj.route('/notes/edit/<id>', methods=['GET', 'POST'])
+@login_required
+def edit_note(id):
+    '''
+    User can edit specified note
+    
+    Parameters:
+    file: id
+    
+    Returns:
+    A link (in an unordered list) for user to view notes
+    '''
+    title = 'Edit Note'
+    form = EditNoteForm()
+
+    if form.validate_on_submit():
+        note = Note.query.filter_by(id=id).first()
+        note.content = form.content.data or note.content
+        db.session.add(note)
+        db.session.commit()
+        flash('Editted note successfully')
+        return redirect('/notes')
+
+    return render_template('edit-note.html', title=title, form=form)
 
 # Flash Card routes
 @myapp_obj.route("/renderFlashCard", methods=['GET', 'POST'])
