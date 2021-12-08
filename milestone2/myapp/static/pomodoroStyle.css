@@ -1,0 +1,86 @@
+.pomodoroTimer_container {
+  height: 500px;
+  width: 800px;
+  margin-left: 250px;
+  border: 4px solid #7BE679;
+  background-color: #7EF17B ;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.breakTimer_container {
+  height: 500px;
+  width: 800px;
+  margin-left: 250px;
+  margin-bottom:250px;
+  border: 4px solid #EF7373;
+  background-color: #F97777 ;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.label {
+  align-self: center;
+  justify-self: center;
+  font-family: "Arial", serif;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+#work {
+  grid-area: 1 / 5 / 1 / 2;
+}
+
+.pomodoroTimer {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+
+  font-size: 70px;
+  font-weight: bold;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+#pomodoro-timer {
+  grid-area: 2 / 5 / 2 / 2;
+}
+
+
+/*buttons*/
+
+.btn {
+  align-self: center;
+  justify-self: center;
+
+  width: 130px;
+  height: 70px;
+  font-size: 40px;
+}
+
+#start {
+  grid-area: 3 / 3 / 3 / 2;
+}
+
+#reset {
+  grid-area: 3 / 3 / 3 / 3;
+}
+
+#stop {
+  grid-area: 3 / 4 / 3 / 4;
+}
+
+.swapTimer a{
+  margin-left: 515px;
+  font-family: Arial;
+  font-size: 45px;
+  text-decoration: none;
+  color: black;
+}
