@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="breakTimer_container">
+    <p id="work" class="label">Pomodoro Timer</p>
+
+    <div id="pomodoro-timer" class="pomodoroTimer">
+      <p id="break_minutes">5</p>
+      <p class="semicolon">:</p>
+      <p id="break_seconds">00</p>
+    </div>
+    <button id="start" class="btn">Start</button>
+    <button id="stop"  class="btn">Pause</button>
+    <button id="reset" class="btn">Reset</button>
+  </div>
+
+  <div class="swapTimer">
+    <a href="/pomodoro">Back To Work!</a>
+  </div>
+  
+  <script src="{{ url_for('static', filename='breakTimer.js') }}"></script>
+{% endblock %}

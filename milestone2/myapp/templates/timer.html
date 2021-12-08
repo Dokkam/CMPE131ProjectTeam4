@@ -1,35 +1,22 @@
 {% extends "base.html" %}
-<head>
-	<title>60 Second Timer </title>
-	
-	<style type="text/css"
-	       @font-face{
-	       		font-family: sevenSegment;
-	       		src: url(seven-segment.ttf);
-	       }
-		
-	
-	       h1{
-			font-family: sevenSegment;
-	       		font-size: 15em;
-	       }
-	<div class="container">
-		<h1 id="count">60</h1>
-	</div>
 
-	<script type="text/javascript">
-		var counter = 10;
-		setInterval( function(){
-			counter--;
+{% block content %}
+  <div class="pomodoroTimer_container">
+    <p id="work" class="label">Pomodoro Timer</p>
 
-			if (counter >=0){
-				id = document.getElementById("count");
-				id.innerHTML = counter ;
-			}
-		},1000);
-	</script>
-</head>
-<body>
+    <div id="pomodoro-timer" class="pomodoroTimer">
+      <p id="work_minutes">25</p>
+      <p class="semicolon">:</p>
+      <p id="work_seconds">00</p>
+    </div>
+    <button id="start" class="btn">Start</button>
+    <button id="stop"  class="btn">Pause</button>
+    <button id="reset" class="btn">Reset</button>
+  </div>
 
-</body>
-</html>
+  <div class="swapTimer">
+    <a href="/breakPomodoro">Break Time!</a>
+  </div>
+  
+  <script src="{{ url_for('static', filename='pomodoroTimer.js') }}"></script>
+{% endblock %}
