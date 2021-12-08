@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired, FileAllowed
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired
 
 class LoginForm(FlaskForm):
@@ -24,6 +24,10 @@ class FileForm(FlaskForm):
 class SearchForm(FlaskForm):
     text = StringField('Text', validators=[DataRequired()])
     submit = SubmitField('Search')
+
+class EditNoteForm(FlaskForm):
+    content = TextAreaField()
+    submit = SubmitField("Save")
 
 class PasswordForm(FlaskForm):
     current_password = PasswordField('Current Password', validators=[DataRequired()])
