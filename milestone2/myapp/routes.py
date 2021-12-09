@@ -327,8 +327,7 @@ def search():
 
 @myapp_obj.route("/splash")
 def splashpage():
-   
-    return render_template("splashpage.html")
+    return render_template("splash.html")
 
 #code for pomodoro timer
 @myapp_obj.route("/pomodoro")
