@@ -35,7 +35,10 @@ def index():
     Splash page for the website
     '''
     title = 'Studious HomePage'
-    return render_template("index.html", title=title)
+    if not current_user.is_authenticated:
+        return render_template("index.html", title=title)
+    else:
+        return redirect(url_for('markdownToFlashcard'))
 
 @myapp_obj.route("/login", methods=['GET', 'POST'])
 def login():
@@ -55,11 +58,7 @@ def login():
         if user and user.check_password(form.password.data):
             login_user(user)
             flash('Logged in successfully.')
-            return render_template(
-                "index.html", 
-                title='Studious HomePage',
-                user=user
-            )
+            return redirect(url_for('index'))
         else:
             flash('Username or password is wrong')
 
